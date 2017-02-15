@@ -1,0 +1,37 @@
+{
+  "name": "hackathon-starter",
+  "version": "3.1.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sahat/hackathon-starter.git"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "camo": "^0.12.3",
+    "http-error-constructor": "^0.1.0",
+    "jsonwebtoken": "^7.2.1",
+    "koa": "^1.2.4",
+    "koa-bearer-token": "^0.1.2",
+    "koa-bodyparser": "^2.3.0",
+    "koa-compress": "^1.0.9",
+    "koa-cors": "0.0.16",
+    "koa-router": "^5.4.0",
+    "koa-static": "^2.0.0",
+    "koa-useragent": "^0.1.5",
+    "mongodb": "^2.2.16",
+    "mongorito": "^2.2.0",
+    "nodemailer": "^2.7.0",
+    "should": "^11.1.1"
+  },
+  "devDependencies": {
+    "grunt": "^1.0.1",
+    "grunt-concurrent": "^2.3.1",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-nodemon": "^0.4.2",
+    "grunt-simple-mocha": "^0.4.1"
+  },
+  "license": "MIT"
+}
