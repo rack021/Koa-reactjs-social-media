@@ -15,6 +15,10 @@ class Membership {
     return Hepler.validate;
   }
 
+  get isAdmin() {
+    return Hepler.isAdmin;
+  }
+
   get getProfile() {
     return UserController.getProfile;
   }

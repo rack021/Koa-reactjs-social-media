@@ -51,6 +51,10 @@ class Helper {
     throw new HttpError(401);
   }
 
+  _forbidden() {
+    throw new HttpError(403);
+  }
+
   *authHandler() {
     let body = this.request.body;
 
@@ -68,10 +72,15 @@ class Helper {
     let condition = { _id: tid };
     let token = yield TokenModel.findOne(condition);
     if (token && token.get("valid") == true) {
-      return token.get("uid");
+      let user = yield UserModel.findOne({ _id: token.get("uid") });
+      return user;
     } else {
       ctx._authFail();
     }
+  }
+
+  *isAdmin(next) {
+    return this.request.user.type === "admin" ? yield next : ctx._forbidden();
   }
 
   *validate(next) {
@@ -84,9 +93,8 @@ class Helper {
     if (!decoded || !decoded.auth) {
       ctx._authFail();
     } else {
-      this.request.uid = yield ctx._verify(decoded.auth);
-      console.log(this.request.uid);
-
+      const userdoc = yield ctx._verify(decoded.auth);
+      this.request.user = userdoc.get();
       yield next;
     }
   }

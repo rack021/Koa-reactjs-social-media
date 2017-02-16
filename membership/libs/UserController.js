@@ -4,7 +4,7 @@ class UserController {
   }
 
   *getProfile() {
-    let condition = { _id: this.request.uid };
+    let condition = { _id: this.request.user._id };
     if (this.params.id) {
       condition = { username: this.params.id };
     }
